@@ -69,6 +69,11 @@ private function onStandardOutputData(evt:ProgressEvent):void {
 public function onApplicationExit(event:Event):void {
 	// fecha o programa nativo
 	np.closeInput();
+	/*
+		essa foi linha foi necessária par finalizar o processo java, 
+		sem ela a aplicação java continua executando 
+		após fechar a aplicação Adobe AIR
+	*/
 	np.exit(true);
 }
 
