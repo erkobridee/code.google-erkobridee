@@ -1,0 +1,4 @@
+TODO:
+
+Exportar um .jar do tipo executável do projeto e este jar gerado
+incluir no /src/jars do projeto AIR 
