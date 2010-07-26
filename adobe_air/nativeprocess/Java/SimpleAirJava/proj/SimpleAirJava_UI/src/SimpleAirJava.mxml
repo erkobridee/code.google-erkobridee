@@ -13,6 +13,11 @@
 	</fx:Declarations>
 	
 	<s:VGroup left="4" right="4" bottom="5" top="2">
+		<s:HGroup width="100%" verticalAlign="middle">
+			<s:Label text="javaw:"/>
+			<s:TextInput id="javawField" width="100%" enter="startJava()"/>
+			<s:Button label="Start Java" id="btnStart" click="startJava()"/>
+		</s:HGroup>
 		<s:TextArea 
 			id="logArea" 
 			width="100%" height="100%" />
