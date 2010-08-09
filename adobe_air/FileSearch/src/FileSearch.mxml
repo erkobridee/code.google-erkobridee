@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   showStatusBar="false">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<fx:Script source="FileSearchCode.as"/>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:VGroup paddingLeft="5" paddingRight="5" paddingBottom="5" paddingTop="5" width="100%" height="100%">
+	
+	<s:HGroup width="100%" verticalAlign="middle">
+		<s:Label text="Folder to search:" />
+		<mx:TextInput id="folderPath" width="100%"/>
+	</s:HGroup>
+
+	<s:HGroup width="100%" verticalAlign="middle">
+		<s:Label text="Search for:" />
+		<mx:TextInput id="searchString" width="100%" text=".jpg" enter="search()" />
+		<mx:Button label="Search" click="search()" />
+	</s:HGroup>
+	
+	<mx:DataGrid id="resultsGrid" dataProvider="{resultData}" width="100%" height="100%">
+		<mx:columns>
+			<mx:DataGridColumn dataField="name" headerText="Name"/>
+			<mx:DataGridColumn dataField="type" headerText="Type" width="60"/>
+			<mx:DataGridColumn dataField="path" headerText="Path"/>
+		</mx:columns>
+	</mx:DataGrid>
+	
+	<s:HGroup width="100%" verticalAlign="middle">
+		<mx:ProgressBar id="progress"  visible="false" indeterminate="true" />
+		<mx:Button id="btnStop" label="Stop" visible="false" click="stopSearch()" />
+	</s:HGroup>
+	
+	</s:VGroup>
+		
+</s:WindowedApplication>
