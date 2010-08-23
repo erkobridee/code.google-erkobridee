@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="webmodulebuilder"  default="create-jar"  basedir=".">
+
+	<!-- set global properties for this build -->
+	<property name="project.name" value="PID_v3" />
+	<property name="project.version" value="3" />
+	<property name="project.title" value="Trabalho - Processamento de imagens digitais" />
+	<property name="project.mainClass" value="com.erkobridee.PID.GUI.MainWindow" />
+	
+	<!-- -->
+	<property name="dist" value="./dist" />	
+	<!-- Local para fazer a cópia -->
+	<!--
+	<property name="copy" value="C:\local\"/>
+	-->
+	
+	<!-- Criação do arquivo jar  -->
+	<target name="create-jar">
+		<!-- Create the distribution directory -->
+		<echo message="Criando ./temp"/>
+		<mkdir dir="./temp"/>
+
+		<copy todir="./temp" >
+			<fileset dir="./bin">
+				<include name="**/*.*"/>
+			</fileset>
+			<fileset dir="./src">
+				<include name="**/*.*"/>
+			</fileset>
+			<fileset dir=".">
+				<include name="script/**/*.*"/>
+			</fileset>
+		</copy>
+					
+		<echo message="Apagando ${dist}/${project.name}.jar"/>
+		<delete file="${dist}/${project.name}.jar"/>
+						
+		<!-- Criando o arquivo jar -->
+		<jar jarfile="${project.name}.jar" basedir="./temp">
+			<include name="**/*.*"/>	
+			<manifest>
+				<attribute name="Main-Class" value="${project.mainClass}"/>			
+			</manifest>
+		</jar>
+		<!-- Copiando jar para um local específico -->
+		<!--
+		<copy file="${project.name}.jar" todir="${copy}"/>
+		-->
+		<!-- apagando a pasta temporária de geração do jar -->
+		<delete dir="./temp"/> 
+	</target>
+	  
+</project>

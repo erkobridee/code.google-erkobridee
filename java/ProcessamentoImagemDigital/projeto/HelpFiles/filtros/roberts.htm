@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title></title>
+</head>
+
+<body>
+<img src="../icones/menu.gif"> <a href="../manipulacoes.htm">[Voltar]</a> <a href="../index.htm"> [In&iacute;cio]</a><br>
+<div align="center"><b>Filtro Roberts</b></div>
+<br>
+
+<code>
+É um tipo de filtro passa alta e filtro direcional. <br>
+<br>
+O filtro Roberts é um filtro não-linear parecido com o filtro Sobel <br>
+e representa uma aproximação à função de Roberts. O tamanho da máscara (2 x 2) não pode ser mudado.<br>
+<br>
+<b>Vantagem:</b> realçar e isolar bordas em direções predeterminadas.<br>
+<br>
+<b>Desvantagem:</b> produz muitas vezes bordas artificiais, que podem confundir o intérprete.<br>
+<br>
+<b>Funcionamento:</b><br>
+Percorre a imagem calculando a hipotenusa utilizando as seguintes mascaras abaixo. <br>
+Realiza o seguinte calculo: <br>
+<center>f = | Gx² + Gy² |½ </center>
+<br>
+<b>Mascaras:</b><br>
+</code>
+
+<center>
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td colspan="3">
+	  <code>
+&nbsp;+-------+--------+ <br>
+&nbsp;|&nbsp;&nbsp;x,y&nbsp;&nbsp;|&nbsp;x+1,y&nbsp;&nbsp;| <br>
+&nbsp;+-------+--------+ <br>
+&nbsp;| x,y-1 | x+1,y+1| <br>
+&nbsp;+-------+--------+ <br>	  
+	  </code>
+	</td>
+  </tr>
+  <tr>
+    <th><code>Gx</code></th>
+	<th>&nbsp;&nbsp;&nbsp;</th>
+	<th><code>Gy</code></th>
+  </tr>
+  <tr>
+    <td>
+	  <code>
++---+---+ <br>
+|&nbsp;1&nbsp;|&nbsp;0&nbsp;| <br>
++---+---+ <br>
+|&nbsp;0&nbsp;|&nbsp;-1| <br>
++---+---+ <br>
+	  </code>
+	</td>
+	<td>&nbsp;&nbsp;&nbsp;</td>
+	<td>
+	  <code>
++---+---+ <br>
+|&nbsp;0&nbsp;|&nbsp;1&nbsp;| <br>
++---+---+ <br>
+|&nbsp;-1|&nbsp;0&nbsp;| <br>
++---+---+ <br>  
+	  </code>
+	</td>
+  </tr>
+</table>
+</center>
+
+<br>
+<img src="../icones/direta%20verde.gif" width="13" height="13">&nbsp;<b>Usando o programa:</b><br>
+V&aacute; no menu Filtros e escolha a op&ccedil;&atilde;o Roberts. 
+
+<p><b><i>* Imagem Original </i></b></p>
+<img src="../imagens/utilizando/escala de cinza.jpg">
+
+<p><b><i>* Imagem Resultado </i></b></p>
+<img src="../imagens/utilizando/roberts.jpg">
+
+
+<br><br>
+<img src="../icones/menu.gif"> <a href="../manipulacoes.htm">[Voltar</a>] <a href="../index.htm">[In&iacute;cio]</a> 
+</body>
+</html>

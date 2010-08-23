@@ -1,0 +1,47 @@
+
+
+				ALGORITMO DE ORDENAÇÃO
+				
+				
+						QUICKSORT
+						
+implementação em C
+
+------------------------------------------------------------
+
+void quick(int Q[50], int inicio, int fim) {
+  int meio;
+  comparacoes[4]++; // dispensável
+  if (inicio<fim)  {
+     atribuicoes[4]++; // dispensável
+     meio = particiona(Q, inicio, fim);
+     quick(Q, inicio, meio-1);
+     quick(Q, meio+1, fim);
+  }
+}
+
+int particiona( int Q[50], int inicio, int fim ) {
+   int pivo, ultbaixo, temp, i;
+   atribuicoes[4]++; // dispensável
+   pivo = Q[inicio];
+   ultbaixo = inicio;
+ 
+   for(i=inicio+1; i<=fim; i++) {
+      comparacoes[4]++; // dispensável
+      if (Q[i]<=pivo) {
+         ultbaixo++;
+         atribuicoes[4]+=3; // dispensável
+         temp = Q[i];
+         Q[i] = Q[ultbaixo];
+         Q[ultbaixo] = temp;
+      }
+   }
+
+   atribuicoes[4]+=3; // dispensável
+   temp = Q[inicio];
+   Q[inicio] = Q[ultbaixo];
+   Q[ultbaixo] = temp;
+   return(ultbaixo);
+}							
+
+------------------------------------------------------------

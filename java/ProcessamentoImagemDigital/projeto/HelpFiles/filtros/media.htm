@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title></title>
+</head>
+
+<body>
+<img src="../icones/menu.gif"> <a href="../manipulacoes.htm">[Voltar]</a> <a href="../index.htm"> [In&iacute;cio]</a><br>
+<div align="center"><b>Filtro Média</b></div>
+<br>
+
+<code>
+É um filtro de suavização da imagem utilizado para borramento e redução <br>
+de ruído na imagem. O borramento é utilizado em pré-processamento, tais <br>
+como remoção de pequenos detalhes de uma imagem antes da extração de <br>
+objetos( grandes ), e conexão de pequenas descontinuidades em linhas e curvas. <br>
+<br>
+É um filtro do tipo passa-baixa( filtragem de suavização )<br>
+<br>
+O filtro média é um dos tipos mais simples de filtros passa-baixas <br>
+e o seu efeito é o de substituir o nível de cinza de um pixel pela <br>
+média aritmética do pixel e de seus vizinhos.<br>
+<br>
+<b>Vantagem:</b> preserva as bordas na imagem, suavização da imagem (efeito de desfocagem), <br>
+bom para eliminação de ruídos, se ocaso for imprimir a imagem.<br>
+<br>
+<b>Desvantagem:</b> perda de informação.<br>
+<br>
+<b>Funcionamento:</b><br>
+Percorre a imagem e em cada posição do pixel que está sendo <br>
+verificado, recupera os seus respectivos vizinhos de acordo com o <br>
+tamanho da mascara aplicada realiza a soma de todos os valores dos pixels <br>
+e divide pelo tamanho da dimensão da matriz de mascara aplicada, é uma <br>
+operação de média aritmética do pixel com os seus respectivos vizinhos. <br>
+<br>
+<b>Exemplo de mascara 3x3</b><br>
+</code>
+
+<center>
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+	  <code>
++---+---+---+ <br>
+| 1 | 1 | 1 | <br>
++---+---+---+ <br>
+| 1 | 1 | 1 | * 1/( 3x3 ) <br>
++---+---+---+ <br>
+| 1 | 1 | 1 | <br>
++---+---+---+ <br>
+	  </code>
+	</td>
+  </tr>
+</table>
+</center>
+
+<br>
+<img src="../icones/direta%20verde.gif" width="13" height="13">&nbsp;<b>Usando o programa:</b><br>
+V&aacute; no menu Filtros e escolha a op&ccedil;&atilde;o Média.
+
+<br><div align="center"><b>Imagem em escala de cinza</b></div>
+
+<p><b><i>* Imagem Original </i></b></p>
+<img src="../imagens/utilizando/escala de cinza.jpg">
+
+<p><b><i>* Imagem Resultado </i></b></p>
+<img src="../imagens/utilizando/media escala cinza.jpg">
+
+<br><div align="center"><b>Imagem RGB</b></div>
+
+<p><b><i>* Imagem Original </i></b></p>
+<img src="../imagens/utilizando/imagem original.jpg">
+
+<p><b><i>* Imagem Resultado </i></b></p>
+<img src="../imagens/utilizando/media rgb.jpg">
+
+
+<br><br>
+<img src="../icones/menu.gif"> <a href="../manipulacoes.htm">[Voltar</a>] <a href="../index.htm">[In&iacute;cio]</a> 
+</body>
+</html>

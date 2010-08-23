@@ -1,0 +1,10 @@
+
+INF01046 – Fundamentos de Processamento de Imagens
+http://www.inf.ufrgs.br/~emterroso/inf01046/
+
+Capitulo G - Parte 1
+http://www.sulsoftstore.com.br/guia_envi/g/01.html
+
+
+projeto em java, ver link:
+http://natsci.eckerd.edu/~wilkindj/java/java.html

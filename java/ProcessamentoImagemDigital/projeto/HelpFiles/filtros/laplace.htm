@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title></title>
+</head>
+
+<body>
+<img src="../icones/menu.gif"> <a href="../manipulacoes.htm">[Voltar]</a> <a href="../index.htm"> [In&iacute;cio]</a><br>
+<div align="center"><b>Filtro Laplaciano</b></div>
+<br>
+
+<code>
+
+Este filtro é útil na detecção de bordas. 
+Geralmente, a soma dos pesos da máscara <br>é igual a zero 
+(Crósta, 1993, p. 85). Ele usa uma máscara com um alto valor central, 
+<br>cercado de valores negativos nas direções N-S e E-W e o valor zero para os pesos da máscara.<br>
+<br>
+<b>Vantagem:</b> detecção de bordas.<br>
+<br>
+<b>Desvantagem:</b> não considera a direção das bordas.<br>
+<br>
+<b>Mascara do filtro:</b><br>
+</code>
+
+<center>
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+	  <code>
++---+---+---+ <br>
+| 0 | -1| 0 | <br>
++---+---+---+ <br>
+| -1| 4 | -1| <br>
++---+---+---+ <br>
+| 0 | -1| 0 | <br>
++---+---+---+ <br>
+	  </code>
+	</td>
+  </tr>
+</table>
+</center>
+
+<br>
+<img src="../icones/direta%20verde.gif" width="13" height="13">&nbsp;<b>Usando o programa:</b><br>
+V&aacute; no menu Filtros e escolha a op&ccedil;&atilde;o Laplace.
+
+<p><b><i>* Imagem Original </i></b></p>
+<img src="../imagens/utilizando/escala de cinza.jpg">
+
+<p><b><i>* Imagem Resultado </i></b></p>
+<img src="../imagens/utilizando/laplace.jpg">
+
+<br><br>
+<img src="../icones/menu.gif"> <a href="../manipulacoes.htm">[Voltar</a>] <a href="../index.htm">[In&iacute;cio]</a> 
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="Author" content="gilmario">
+  <meta name="GENERATOR" content="Mozilla/4.77 [en] (WinNT; U) [Netscape]"><title>operações em áreas</title></head>
+
+<body alink="#ff0000" bgcolor="#FFFFFF" link="#0000ee" text="#000000" vlink="#006600">
+<img src="icones/menu.gif"> <a href="index.htm">Voltar</a><br>
+<table border="0" cols="1" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b><font face="Tahoma">Operações
+em áreas</font></b></td>
+    </tr>
+  </tbody>
+</table>
+<p><b>Filtros</b>
+<br>
+Os detalhes "finos" ou variações abruptas em uma imagem,
+correspondem a componentes de alta freqüência; já os
+detalhes mais "grosseiros", caracterizados por variações
+mais lentas que permitem uma visualização menos detalhada
+da imagem, surgem como componentes de baixa freqüência.
+<br>
+Através de filtros espaciais que agindo indiretamente sobre
+essas componentes de freqüências, é possível
+realizar
+uma série de melhoramentos em uma imagem, tais como:
+</p>
+<blockquote><b>Filtros de suavização</b>
+  <br>
+Usados para borramento e redução de ruído.
+  <blockquote><b>Filtro da Média - passa baixas
+freqüências</b>
+    <br>
+Equivale a uma atenuação das freqüências
+responsáveis
+pelos detalhes finos na imagem. A forma mais simples de construir um
+filtro
+desse tipo é através da utilização de uma
+máscara
+3 x 3, com pesos iguais a 1, dessa forma a resposta (<i>R</i>) da
+máscara
+seria a soma dos níveis de cinza dos pixels,&nbsp; como tal
+valor
+poderia ultrapassar o limite máximo da escala, essa soma
+é
+normalizada por nove (a soma obtida é dividida por nove) que
+corresponde
+ao tamanho da máscara, dessa forma <i>R</i> passa a ser a
+média
+dos tons de cinza na vizinhança de cada pixel.
+    <br>
+Também são possíveis máscaras com
+dimensões
+maiores, mas sempre com resposta normalizadas pelos seus tamanhos.
+    <p><b>Filtro por mediana</b>
+    <br>
+Uma das desvantagens do filtro de média é que além
+de atenuar os ruídos ele provoca um borramento em todos os
+detalhes
+finos da imagem. O filtro por mediana viabiliza uma
+atenuação
+de ruídos, ao invés de borrar a imagem, nessa
+operação,
+o nível de cinza de cada pixel é substituído pela
+mediana dos níveis de cinza na vizinhança daquele
+pixel.&nbsp;&nbsp;
+Para calcular a filtragem por mediana em uma vizinhança de um
+pixel
+    <i>P</i>,deve-se
+selecionar o valor do pixel e de seus vizinhos, após isso
+determinar
+a mediana (a mediana de um conjunto <i>N</i> de números
+ordenados
+em ordem de grandeza, é o valor do ponto central, se a
+cardinalidade
+de <i>N</i> for ímpar ou a média aritmética dos
+dois
+valores centrais se a cardinalidade de <i>N</i> for par) e finalmente
+atribuir
+o valor da mediana ao equivalente de <i>P
+    </i>na imagem resultante. Em
+uma vizinhança 3x3 a mediana corresponde ao quinto maior valor,
+já em uma vizinhança 5x5 a mediana corresponderá
+ao
+décimo terceiro maior valor.
+    <br>
+&nbsp;
+    <br>
+&nbsp;
+    </p>
+    <center>
+    <table border="0" cols="0" width="39%">
+      <tbody>
+        <tr>
+          <td><img src="operacoes_em_areas_files/medianamedia.jpg" nosave="" border="0" height="367" width="347"></td>
+        </tr>
+      </tbody><caption align="bottom">figura 1. imagem original em (A)
+resultado de inserção
+de ruído em (B), aplicação de filtro de
+média
+em (C) e mediana em (D)<br>
+      </caption>
+    </table>
+    </center>
+  </blockquote>
+  <b>Filtros de aguçamento</b>
+  <br>
+O objetivo principal deste tipo de filtro é enfatizar detalhes
+finos numa imagem ou realçar detalhes que tenham sido borrados.
+Os usos desse tipo de filtro são variados, incluindo
+aplicações
+desde inspeção industrial a imageamento para fins de
+diagnóstico
+médico, passando por detecção de alvos em armas
+inteligentes.
+  <blockquote><b>Filtro espacial passa-altas</b>
+    <br>
+Um filtro de aguçamento deve possuir coeficientes (pesos)
+positivos
+próximos ao centro e coeficientes negativos na periferia. Para
+uma
+máscara 3x3, a escolha de um valor positivo no centro, com
+coeficientes
+negativos no resto da máscara, satisfaz essa
+característica.
+    <br>
+Na figura 2C tem-se exemplo de um filtro passa-altas básico,
+perceba que a soma dos pesos é zero, assim, quando a
+máscara
+estiver sobre uma região de níveis d ecinza constantes ou
+de pequena variação (regiões homogêneas) a
+saída
+da máscara será zero ou bastante pequena, o que é
+coerente, já que nessas regiões não há
+detalhes
+a serem destacados (<u>matematicamente a derivada de uma
+função
+constante é zero</u> portanto as respostas dos filtros devem
+também
+sê-lo, em regiões que não apresentam
+variação
+de níveis de cinza).
+    <br>
+Como fruto da aplicação de um filtro passa-altas podem
+surgir valores de pixel negativos. Como é praxe a
+utilização
+apenas de valores positivos, o processo de filtragem passa-altas deve
+envolver
+algum tipo de mudança de escala e/ou exclusão desses
+níveis,
+de forma que os valores de pixels encontrado recaiam sobre a escala
+convencional
+[0,L]. Deve-se ressaltar que não é recomendada a
+solução
+mais simples, que consiste em simplesmente considerar os valores de
+pixels
+pelos seus módulos pois isso poderia acarretar o surgimento de
+pontos
+brilhantes na imagem de saída em função de
+prováveis
+pixels com valores negativos muito altos.
+    <br>
+&nbsp;
+    <br>
+&nbsp;
+    <br>
+&nbsp;
+    <center>
+    <table border="0" cols="2" width="58%">
+      <tbody>
+        <tr>
+          <td><img src="operacoes_em_areas_files/filtropassaaltas.jpg" nosave="" height="215" width="525"></td>
+          <td>
+          <center>
+          <table cols="2" width="120">
+            <caption><b>(C)</b></caption>
+            <tbody>
+              <tr>
+                <td>
+                <center><font size="+1">1/9</font> x</center>
+                </td>
+                <td>
+                <center>
+                <table border="1" cols="3" width="100%">
+                  <tbody>
+                    <tr>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                      <td>
+                      <center>8</center>
+                      </td>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                      <td>
+                      <center>-1</center>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </center>
+          </td>
+        </tr>
+      </tbody><caption align="bottom">figura 2. imagem original em (A)
+e resultado da aplicação
+de filtro passa altas em (B), e em (C) a máscara de um filtro
+passa
+altas utilizado<br>
+      </caption>
+    </table>
+    </center>
+    <p><b>Filtro de alto reforço</b>
+    <br>
+O filtro passa-altas produz uma imagem com valor de médio de
+nível de cinza, quase zero, resultados melhores podem ser
+obtidos
+através do uso de filtragem de alto reforço. Uma imagem
+filtrada
+por passa-altas pode ser obtida pela diferença entre a imagem
+original
+e a resultante de uma filtragem passa-baixas sobre a mesma imagem, ou
+seja:
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PA = original -
+PB,&nbsp;&nbsp;
+onde PA corresponde a passa-altas e PB a passa-baixas
+    </p>
+    <p>Um filtro de alto reforço (AR) pode ser obtido pela
+expressão
+abaixo, onde A, corresponde a um fator de amplificação:
+    <br>
+AR = A * original - PB =&nbsp; A * original - original + original -
+PB =&nbsp; (A-1) * original&nbsp; + (original ) -PB
+    <br>
+AR= (A-1) * original - PA
+    </p>
+    <p>Para A = 1, tem-se o PA comum. Para A &gt; 1, parte do original
+é
+adicionado de volta ao resultado PA, o que restaura parcialmente os
+componentes
+de baixa freqüência perdidos na operação de
+filtragem
+PA.
+    <br>
+Abaixo (figura 3) segue um elemento estrutural para filtragem espacial
+de alto reforço onde:
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+W = 9A - 1, para A &gt;= 1 <br>
+&nbsp;
+    </p>
+    <center>
+    <table cols="2" width="150">
+      <tbody>
+        <tr>
+          <td>
+          <center><b>1/9 x</b></center>
+          </td>
+          <td>
+          <center>
+          <table border="1" cols="3" width="100%">
+            <tbody>
+              <tr>
+                <td>-1</td>
+                <td>-1</td>
+                <td>-1</td>
+              </tr>
+              <tr>
+                <td>-1</td>
+                <td>W</td>
+                <td>-1</td>
+              </tr>
+              <tr>
+                <td>-1</td>
+                <td>-1</td>
+                <td>-1</td>
+              </tr>
+            </tbody>
+          </table>
+          </center>
+          </td>
+        </tr>
+      </tbody><caption align="bottom">figura 3. máscara de
+filtro de alto reforço&nbsp;<br>
+      </caption>
+    </table>
+    </center>
+  </blockquote>
+  <b>Filtros por derivadas</b>
+  <br>
+Outra classe de filtros que tratam do realce de bordas e detalhes
+importantes
+é a que se baseia em derivadas de funções, dos
+operadores
+de derivadas o mais aplicado é cálculo do vetor
+gradiente.
+Como a direção do vetor gradiente define a
+direção
+de máxima variação de uma função em
+um ponto, a partir da magnitude desta variação é
+possível
+determinar certas ações de filtragem.
+  <br>
+&nbsp;
+  <center>
+  <table border="0" cols="1" width="34%">
+    <tbody>
+      <tr>
+        <td><img src="operacoes_em_areas_files/gradienteformulas.jpg" nosave="" height="92" width="414"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  <center>figura 4. expressões do gradiente e sua magnitude</center>
+  <p>A figura 4 apresenta as expressões do gradiente e sua
+magnitude,
+para o caso de uma função contínua, no caso de
+imagens
+lida-se com valores discretos, por conta disso, para uma máscara
+como o apresentado na figura 5A a magnitude do gradiente pode ser
+aproximada
+pela expressão&nbsp; |Z5-Z8| + |Z5-Z6| ou | Z5-Z9 | + | Z6 - Z8
+| ,&nbsp; essa última conhecida como diferenças cruzadas.
+Uma aplicação das diferenças cruzadas
+típica
+são os operadores de <i>Roberts</i>, que usam máscaras
+de
+dimensão par, e podem ser vistos na figura 5B. Há
+também
+os operadores de <i>Prewitt</i> (figura 5C) os quais são uma
+aproximação
+para a seguinte expressão de magnitude:
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| (Z7+Z8+Z9) - (Z1+Z2+Z3) | + | (Z3+Z6+Z9)-(Z1+Z4+Z7) |
+  </p>
+  <p>Além desses operadores há outros como os operadores
+de
+  <i>Sobel</i>,
+que podem ser vistos na figura 5D.
+  <br>
+&nbsp;
+  <br>
+&nbsp;
+  <table border="0" cols="4" width="100%">
+    <tbody>
+      <tr>
+        <td>
+        <center>
+        <table border="1" cols="3" width="28%">
+          <tbody>
+            <tr>
+              <td>
+              <center>Z1</center>
+              </td>
+              <td>
+              <center>Z2</center>
+              </td>
+              <td>
+              <center>Z3</center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <center>Z4</center>
+              </td>
+              <td>
+              <center>Z5</center>
+              </td>
+              <td>
+              <center>Z6</center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <center>Z7</center>
+              </td>
+              <td>
+              <center>Z8</center>
+              </td>
+              <td>
+              <center>Z9</center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </center>
+        <center>(A)</center>
+        </td>
+        <td>
+        <center>
+        <table cols="2" width="100%">
+          <tbody>
+            <tr>
+              <td>
+              <center>
+              <table border="1" cols="2" width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+                    <center>1</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              </td>
+              <td>
+              <center>
+              <table border="1" cols="2" width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>1</center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </center>
+        <center>(B)</center>
+        </td>
+        <td>
+        <center>
+        <table cols="2" width="100%">
+          <tbody>
+            <tr>
+              <td>
+              <center>
+              <table border="1" cols="3" width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <center>1</center>
+                    </td>
+                    <td>
+                    <center>1</center>
+                    </td>
+                    <td>
+                    <center>1</center>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              </td>
+              <td>
+              <center>
+              <table border="1" cols="3" width="100%">
+                <tbody>
+                  <tr>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>1</center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>1</center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <center>-1</center>
+                    </td>
+                    <td>
+                    <center>0</center>
+                    </td>
+                    <td>
+                    <center>1</center>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </center>
+        <center>(C)</center>
+        </td>
+        <td>
+        <center>
+        <table cols="2" width="100%">
+          <tbody>
+            <tr>
+              <td>
+              <center>
+              <table border="1" cols="3" width="100%">
+                <tbody>
+                  <tr>
+                    <td>-1</td>
+                    <td>-2</td>
+                    <td>-1</td>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              </td>
+              <td>
+              <center>
+              <table border="1" cols="3" width="100%">
+                <tbody>
+                  <tr>
+                    <td>-1</td>
+                    <td>0</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>-2</td>
+                    <td>0</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>-1</td>
+                    <td>0</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </center>
+        <center>(D)</center>
+        </td>
+      </tr>
+    </tbody><caption align="bottom">figura 5. (A) máscara
+genérica. (B,C
+e D) Algumas máscara de operadores: (B) Roberts (C) Prewitt (D)
+Sobel<br>
+    </caption>
+  </table>
+  </p>
+</blockquote>
+<center>
+<table border="0" cols="1" width="57%">
+  <tbody>
+    <tr>
+      <td><img src="operacoes_em_areas_files/gradienteaviao.jpg" nosave="" height="226" width="531"></td>
+    </tr>
+  </tbody><caption align="bottom">figura 6. aplicação do
+gradiente por
+operador Prewit<br>
+  </caption>
+</table>
+</center>
+<p><br>
+</p>
+<br>
+<img src="icones/menu.gif"> <a href="index.htm">Voltar</a>
+</body></html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE attributes PUBLIC "-//NetBeans//DTD DefaultAttributes 1.0//EN" "http://www.netbeans.org/dtds/attributes-1_0.dtd">
+<attributes version="1.0">
+    <fileobject name="DefineMascara.java">
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="DefineMascara"/>
+    </fileobject>
+    <fileobject name="Filtro3x3.java">
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="Filtro3x3"/>
+    </fileobject>
+    <fileobject name="ImagePanel.java">
+        <attr name="class_dependency_javax.swing.JPanel" stringvalue="ImagePanel"/>
+    </fileobject>
+    <fileobject name="MainSimple.java">
+        <attr name="class_dependency_java.awt.event.ActionListener" stringvalue="MainSimple.OpcaoMenuHandle;MainSimple.EventosHandle;MainSimple.SobreMenuHandle"/>
+        <attr name="class_dependency_java.awt.event.KeyListener" stringvalue="MainSimple.KeyHandle"/>
+        <attr name="class_dependency_javax.swing.JPanel" stringvalue="MainSimple"/>
+        <attr name="class_dependency_javax.swing.event.ChangeListener" stringvalue="MainSimple.ChangeHandle"/>
+    </fileobject>
+    <fileobject name="MainWindow.java">
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="JFrame"/>
+    </fileobject>
+</attributes>
