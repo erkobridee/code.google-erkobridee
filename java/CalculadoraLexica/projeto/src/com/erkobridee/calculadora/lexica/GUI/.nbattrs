@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE attributes PUBLIC "-//NetBeans//DTD DefaultAttributes 1.0//EN" "http://www.netbeans.org/dtds/attributes-1_0.dtd">
+<attributes version="1.0">
+    <fileobject name="Analise.java">
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="Analise"/>
+    </fileobject>
+    <fileobject name="Info.java">
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="Info"/>
+    </fileobject>
+    <fileobject name="InfoPrograma.java">
+        <attr name="class_dependency_java.awt.event.ActionListener" stringvalue="InfoPrograma.ActionHandle"/>
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="InfoPrograma"/>
+    </fileobject>
+    <fileobject name="Main.java">
+        <attr name="class_dependency_javax.swing.JFrame" stringvalue="Main"/>
+    </fileobject>
+</attributes>
