@@ -1,0 +1,4 @@
+
+- Adobe Flex 4
+- Projeto Adobe Flash Builder Plugin
+- Eclipse 3.6 ( Galileo )
